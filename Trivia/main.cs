@@ -7,7 +7,9 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Collections.Generic;
 using System.Timers;
+using Wolfje.Plugins.SEconomy.Journal;
 using Wolfje.Plugins.SEconomy;
+
 
 namespace TRIVIA
 {
@@ -124,8 +126,10 @@ namespace TRIVIA
                 }
                 if (config.GiveSEconomyCurrency)
                 {
-                    Wolfje.Plugins.SEconomy.Economy.EconomyPlayer Server = SEconomyPlugin.GetEconomyPlayerSafe(TShockAPI.TSServerPlayer.Server.UserID);
-                    Server.BankAccount.TransferToAsync(args.Player.Index, config.CurrencyAmount, Wolfje.Plugins.SEconomy.Journal.BankAccountTransferOptions.AnnounceToReceiver, "answering the trivia question correctly", "Answered trivia question");
+                    IBankAccount Server = SEconomyPlugin.Instance.GetBankAccount(TSServerPlayer.Server.UserID);
+                    IBankAccount Player = SEconomyPlugin.Instance.GetBankAccount(args.Player.Index);
+
+                    Server.TransferToAsync(Player, config.CurrencyAmount, BankAccountTransferOptions.AnnounceToReceiver, "answering the trivia question correctly", "Answered trivia question");                    
                 }
             }
             seconds = 0;
@@ -240,7 +244,7 @@ namespace TRIVIA
             new trivia("In order of area: What are the three largest countries in the world?","Russia Canada China"),
             new trivia("In 1927, what adventurous 25 year old man was the first Time Magazine Person of the Year?","Charles Lindbergh"),
             new trivia("The only English word with five consecutive vowels is something the British do while waiting for a bus. What is it?","Queuing"),
-            new trivia("What is the most common gift for fathers day?","A tie"),
+            new trivia("What is the most common gift for fathers day?","tie"),
             new trivia("Because of the population problem, in China, married couples lose various governmental benefits after the birth of which child?","2"),
             new trivia("In 1507 German cartographer Martin Waldseemüller was the first mapmaker to use what name on a map of the new world?","America"),
             new trivia("Name all the planets in our solar system without a moon","Mercury Venus"),
