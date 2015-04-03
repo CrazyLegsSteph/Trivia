@@ -58,7 +58,6 @@ namespace TRIVIA
         {
             TSPlayer.All.SendInfoMessage("[Trivia] Type /answer or /a <answer here>");
             TSPlayer.All.SendInfoMessage("[Trivia] " + CurrentQAndA.Question);
-            TSPlayer.All.SendInfoMessage("[Trivia] " + CurrentQAndA.Answer);
         }
         public TriviaManager()
         {
