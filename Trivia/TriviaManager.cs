@@ -55,7 +55,7 @@ namespace Trivia
 
         public void Load_Config()
         {
-            Config = new Config(Config.Path);
+            Config = new Config(Config.SavePath);
             this.Enabled = Config.Enabled;
         }
 

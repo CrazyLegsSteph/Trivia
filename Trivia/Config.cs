@@ -6,7 +6,7 @@ namespace Trivia
 {
     public class Config
     {
-        public static string Path = "test.json";
+        public static string SavePath = Path.Combine(TShock.SavePath, "Trivia.json");
         public bool Enabled = true;
         public int QuestionInterval = 120;
         public int AnswerTime = 45;
@@ -21,7 +21,7 @@ namespace Trivia
 
         public Config(string path) : this()
         {
-            if (!File.Exists(Path))
+            if (!File.Exists(SavePath))
                 write();
             else
                 Read();
@@ -31,7 +31,7 @@ namespace Trivia
         {
             try
             {               
-                Config res = JsonConvert.DeserializeObject<Config>(File.ReadAllText(Path));
+                Config res = JsonConvert.DeserializeObject<Config>(File.ReadAllText(SavePath));
                 this.Enabled = res.Enabled;
                 this.QuestionInterval = res.QuestionInterval;
                 this.AnswerTime = res.AnswerTime;
@@ -48,7 +48,7 @@ namespace Trivia
 
         public void write()
         {
-            File.WriteAllText(Path, JsonConvert.SerializeObject(this, Formatting.Indented));
+            File.WriteAllText(SavePath, JsonConvert.SerializeObject(this, Formatting.Indented));
         }
 
         public void Reload(CommandArgs args)
