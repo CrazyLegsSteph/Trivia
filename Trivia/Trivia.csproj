@@ -45,14 +45,15 @@
     <Reference Include="System.Xml" />
     <Reference Include="TerrariaServer, Version=1.15.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\CubiV\Server\TerrariaServer.exe</HintPath>
+      <HintPath>..\..\..\..\..\..\..\CubiV\References\TerrariaServer.exe</HintPath>
     </Reference>
-    <Reference Include="TShockAPI, Version=4.2.10.0, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="TShockAPI, Version=4.3.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\CubiV\Server\ServerPlugins\TShockAPI.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\CubiV\References\TShockAPI.dll</HintPath>
     </Reference>
-    <Reference Include="Wolfje.Plugins.SEconomy">
-      <HintPath>..\..\..\..\..\Downloads\Wolfje Plugins\Wolfje.Plugins.SEconomy.dll</HintPath>
+    <Reference Include="Wolfje.Plugins.SEconomy, Version=1.0.18.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\CubiV\References\Wolfje.Plugins.SEconomy.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
