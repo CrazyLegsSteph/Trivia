@@ -34,7 +34,7 @@ namespace Trivia
         }
         public override void Initialize()
         {
-            Commands.ChatCommands.Add(new Command(Answer, "answer", "a"));
+            Commands.ChatCommands.Add(new Command("trivia.answer", Answer, "answer", "a"));
             Commands.ChatCommands.Add(new Command("trivia.reload", Reload_Config, "triviareload"));
             TriviaManager.Initialize();
         }
